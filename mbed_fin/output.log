@@ -1,0 +1,311 @@
+Connecting to localhost/Mbed
+Connected rc: 0
+Subscribed OK
+[Received] Topic: Mbed, Message: b'0 0\r\n'
+
+0 0
+
+[Received] Topic: Mbed, Message: b'1 1\r\n'
+
+1 1
+
+[Received] Topic: Mbed, Message: b'2 1\r\n'
+
+2 1
+
+[Received] Topic: Mbed, Message: b'3 1\r\n'
+
+3 1
+
+[Received] Topic: Mbed, Message: b'4 1\r\n'
+
+4 1
+
+[Received] Topic: Mbed, Message: b'5 1\r\n'
+
+5 1
+
+[Received] Topic: Mbed, Message: b'6 1\r\n'
+
+6 1
+
+[Received] Topic: Mbed, Message: b'7 1\r\n'
+
+7 1
+
+[Received] Topic: Mbed, Message: b'8 1\r\n'
+
+8 1
+
+[Received] Topic: Mbed, Message: b'9 1\r\n'
+
+9 1
+
+[Received] Topic: Mbed, Message: b'10 1\r\n'
+
+10 1
+
+[Received] Topic: Mbed, Message: b'11 3\r\n'
+
+11 3
+
+[Received] Topic: Mbed, Message: b'12 3\r\n'
+
+12 3
+
+[Received] Topic: Mbed, Message: b'14 3\r\n'
+
+14 3
+
+[Received] Topic: Mbed, Message: b'15 1\r\n'
+
+15 1
+
+[Received] Topic: Mbed, Message: b'16 1\r\n'
+
+16 1
+
+[Received] Topic: Mbed, Message: b'17 1\r\n'
+
+17 1
+
+[Received] Topic: Mbed, Message: b'18 1\r\n'
+
+18 1
+
+[Received] Topic: Mbed, Message: b'19 1\r\n'
+
+19 1
+
+[Received] Topic: Mbed, Message: b'20 1\r\n'
+
+20 1
+
+[Received] Topic: Mbed, Message: b'21 3\r\n'
+
+21 3
+
+[Received] Topic: Mbed, Message: b'22 3\r\n'
+
+22 3
+
+[Received] Topic: Mbed, Message: b'23 3\r\n'
+
+23 3
+
+[Received] Topic: Mbed, Message: b'24 2\r\n'
+
+24 2
+
+[Received] Topic: Mbed, Message: b'25 2\r\n'
+
+25 2
+
+[Received] Topic: Mbed, Message: b'26 2\r\n'
+
+26 2
+
+[Received] Topic: Mbed, Message: b'27 2\r\n'
+
+27 2
+
+[Received] Topic: Mbed, Message: b'28 1\r\n'
+
+28 1
+
+[Received] Topic: Mbed, Message: b'29 1\r\n'
+
+29 1
+
+[Received] Topic: Mbed, Message: b'30 1\r\n'
+
+30 1
+
+[Received] Topic: Mbed, Message: b'31 4\r\n'
+
+31 4
+
+[Received] Topic: Mbed, Message: b'32 4\r\n'
+
+32 4
+
+[Received] Topic: Mbed, Message: b'33 4\r\n'
+
+33 4
+
+[Received] Topic: Mbed, Message: b'34 1\r\n'
+
+34 1
+
+[Received] Topic: Mbed, Message: b'35 1\r\n'
+
+35 1
+
+[Received] Topic: Mbed, Message: b'36 1\r\n'
+
+36 1
+
+[Received] Topic: Mbed, Message: b'37 4\r\n'
+
+37 4
+
+[Received] Topic: Mbed, Message: b'38 4\r\n'
+
+38 4
+
+[Received] Topic: Mbed, Message: b'39 4\r\n'
+
+39 4
+
+[Received] Topic: Mbed, Message: b'40 4\r\n'
+
+40 4
+
+[Received] Topic: Mbed, Message: b'41 1\r\n'
+
+41 1
+
+[Received] Topic: Mbed, Message: b'42 1\r\n'
+
+42 1
+
+[Received] Topic: Mbed, Message: b'43 1\r\n'
+
+43 1
+
+[Received] Topic: Mbed, Message: b'44 1\r\n'
+
+44 1
+
+[Received] Topic: Mbed, Message: b'45 1\r\n'
+
+45 1
+
+[Received] Topic: Mbed, Message: b'46 1\r\n'
+
+46 1
+
+[Received] Topic: Mbed, Message: b'47 1\r\n'
+
+47 1
+
+[Received] Topic: Mbed, Message: b'48 4\r\n'
+
+48 4
+
+[Received] Topic: Mbed, Message: b'49 4\r\n'
+
+49 4
+
+[Received] Topic: Mbed, Message: b'50 4\r\n'
+
+50 4
+
+[Received] Topic: Mbed, Message: b'51 1\r\n'
+
+51 1
+
+[Received] Topic: Mbed, Message: b'52 1\r\n'
+
+52 1
+
+[Received] Topic: Mbed, Message: b'53 1\r\n'
+
+53 1
+
+[Received] Topic: Mbed, Message: b'54 4\r\n'
+
+54 4
+
+[Received] Topic: Mbed, Message: b'55 4\r\n'
+
+55 4
+
+[Received] Topic: Mbed, Message: b'56 4\r\n'
+
+56 4
+
+[Received] Topic: Mbed, Message: b'57 1\r\n'
+
+57 1
+
+[Received] Topic: Mbed, Message: b'58 1\r\n'
+
+58 1
+
+[Received] Topic: Mbed, Message: b'triangle\r\n'
+
+triangle
+
+[Received] Topic: Mbed, Message: b'59 1\r\n'
+
+59 1
+
+[Received] Topic: Mbed, Message: b'60 2\r\n'
+
+60 2
+
+[Received] Topic: Mbed, Message: b'61 2\r\n'
+
+61 2
+
+[Received] Topic: Mbed, Message: b'62 4\r\n'
+
+62 4
+
+[Received] Topic: Mbed, Message: b'63 4\r\n'
+
+63 4
+
+[Received] Topic: Mbed, Message: b'64 4\r\n'
+
+64 4
+
+[Received] Topic: Mbed, Message: b'65 1\r\n'
+
+65 1
+
+[Received] Topic: Mbed, Message: b'66 1\r\n'
+
+66 1
+
+[Received] Topic: Mbed, Message: b'67 1\r\n'
+
+67 1
+
+[Received] Topic: Mbed, Message: b'68 4\r\n'
+
+68 4
+
+[Received] Topic: Mbed, Message: b'69 4\r\n'
+
+69 4
+
+[Received] Topic: Mbed, Message: b'70 4\r\n'
+
+70 4
+
+[Received] Topic: Mbed, Message: b'71 4\r\n'
+
+71 4
+
+[Received] Topic: Mbed, Message: b'72 1\r\n'
+
+72 1
+
+[Received] Topic: Mbed, Message: b'73 1\r\n'
+
+73 1
+
+[Received] Topic: Mbed, Message: b'74 1\r\n'
+
+74 1
+
+[Received] Topic: Mbed, Message: b'75 1\r\n'
+
+75 1
+
+[Received] Topic: Mbed, Message: b'0 0\r\n'
+
+0 0
+
