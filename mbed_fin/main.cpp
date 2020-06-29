@@ -2,7 +2,7 @@
 #include "bbcar.h"
 
 Serial pc(USBTX, USBRX);
-DigitalOut redLed(LED1);
+DigitalOut blueLED(LED3);
 // ping data
 DigitalInOut pin10(D10);
 parallax_ping ping(pin10);
@@ -31,8 +31,6 @@ void get_image_data();
 void object_detect();
 void xbee_rx_interrupt(void);
 void xbee_rx(void);
-void reply_messange(char *xbee_reply, char *messange);
-void check_addr(char *xbee_reply, char *messenger);
 
 // global var
 int obj_result = 0;  // for mission 2 
@@ -47,7 +45,7 @@ int main() {
     uart.baud(9600);
 
 	pc.printf("start\r\n");
-    redLed = 1;
+    blueLED = 1;
 	t_xbee.start(callback(&queue_xbee, &EventQueue::dispatch_forever));
     xbee.attach(xbee_rx_interrupt, Serial::RxIrq);
     t_logger.start(logger);
@@ -58,34 +56,29 @@ int main() {
     encoder_left.reset();
     movement = 1;
     car.goStraight(100);
-    while (1){
-        if ((float)ping < 30){
-        car.stop();
-        break;
+    /*while (1){
+        if ((float)ping < 35){
+            car.stop();
+            break;
         }
         wait_ms(10);
-    }
-    //while(encoder_left.get_cm()<80) wait_ms(50);
+    }*/
+    while(encoder_left.get_cm()<80) wait_ms(50);
     car.stop();
 
     // matrix data
-    /*non_mission = 0;
+    non_mission = 0;
+    blueLED = 0;
     data_matrix();
-    non_mission = 1;*/
+    non_mission = 1;
+    blueLED = 1;
 
     // turn left
     wait(1);
     encoder_left.reset();
     movement = 3;
     car.turn(100, 0.3);
-    while (1){
-        if ((float)ping < 15){
-        car.stop();
-        break;
-        }
-        wait_ms(10);
-    }
-    //while(encoder_left.get_cm()<21.5) wait_ms(50);
+    while(encoder_left.get_cm()<22) wait_ms(50);
     car.stop();
     
     // mission 1: 
@@ -94,7 +87,14 @@ int main() {
     encoder_left.reset();
     movement = 1;
     car.goStraight(100);
-    while(encoder_left.get_cm()<60) wait_ms(50);
+    /*while (1){
+        if ((float)ping < 35){
+            car.stop();
+            break;
+        }
+        wait_ms(10);
+    }*/
+    while(encoder_left.get_cm()<53) wait_ms(50);
     car.stop();
     // reverse parking
     wait(1);
@@ -108,20 +108,43 @@ int main() {
     encoder_left.reset();
     movement = 2;
     car.goStraight(-100);
-    while(encoder_left.get_cm()<19) wait_ms(50);
+    /*while (1){
+        if ((float)ping > 55){
+            car.stop();
+            break;
+        }
+        wait_ms(10);
+    }*/
+    while(encoder_left.get_cm()<15) wait_ms(50);
     car.stop();
     // forward to pic
-    wait(2);
+    /*wait(2);
     encoder_left.reset();
     movement = 1;
-    car.goStraight(100);
-    while(encoder_left.get_cm()<22) wait_ms(50);
+    car.goStraight(100);*/
+    /*while (1){
+        if ((float)ping < 35){
+            car.stop();
+            break;
+        }
+        wait_ms(10);
+    }*/
+    while(encoder_left.get_cm()<10) wait_ms(50);
     car.stop();
 
+
+    wait(1);
+    encoder_left.reset();
+    movement = 4;
+    car.turn(100, -0.3);
+    while(encoder_left.get_cm()<8) wait_ms(50);
+    car.stop();
     // take pic
     non_mission = 0;
+    blueLED = 0;
     get_image_data();
     non_mission = 1;
+    blueLED = 1;
 
     // walk to mission 2
     // turn right
@@ -129,13 +152,20 @@ int main() {
     encoder_left.reset();
     movement = 4;
     car.turn(100, -0.3);
-    while(encoder_left.get_cm()<14) wait_ms(50);
+    while(encoder_left.get_cm()<8) wait_ms(50);
     car.stop();
     // straight
     wait(1);
     encoder_left.reset();
     movement = 1;
     car.goStraight(100);
+    /*while (1){
+        if ((float)ping < 50){
+            car.stop();
+            break;
+        }
+        wait_ms(10);
+    }*/
     while(encoder_left.get_cm()<20) wait_ms(50);
     car.stop();
     // turn right
@@ -143,21 +173,28 @@ int main() {
     encoder_left.reset();
     movement = 4;
     car.turn(100, -0.3);
-    while(encoder_left.get_cm()<13.75) wait_ms(50);
+    while(encoder_left.get_cm()<16) wait_ms(50);
     car.stop();
     // straight
     wait(1);
     encoder_left.reset();
     movement = 1;
     car.goStraight(100);
-    while(encoder_left.get_cm()<65) wait_ms(50);
+    /*while (1){
+        if ((float)ping < 35){
+            car.stop();
+            break;
+        }
+        wait_ms(10);
+    }*/
+    while(encoder_left.get_cm()<67) wait_ms(50);
     car.stop();
     // turn right
     wait(1);
     encoder_left.reset();
     movement = 4;
     car.turn(100, -0.3);
-    while(encoder_left.get_cm()<13.75) wait_ms(50);
+    while(encoder_left.get_cm()<16) wait_ms(50);
     car.stop();
 
     // mission 2:
@@ -166,29 +203,45 @@ int main() {
     encoder_left.reset();
     movement = 1;
     car.goStraight(100);
-    while(encoder_left.get_cm()<20) wait_ms(50);
+    /*while (1){
+        if ((float)ping < 40){
+            car.stop();
+            break;
+        }
+        wait_ms(10);
+    }*/
+    while(encoder_left.get_cm()<23) wait_ms(50);
     car.stop();
     // turn right
     wait(1);
     encoder_left.reset();
     movement = 4;
     car.turn(100, -0.3);
-    while(encoder_left.get_cm()<13.75) wait_ms(50);
+    while(encoder_left.get_cm()<16) wait_ms(50);
     car.stop();
     // straight
     wait(1);
     encoder_left.reset();
     movement = 1;
     car.goStraight(100);
-    while(encoder_left.get_cm()<10) wait_ms(50);
+    /*while (1){
+        if ((float)ping < 50){
+            car.stop();
+            break;
+        }
+        wait_ms(10);
+    }*/
+    while(encoder_left.get_cm()<8) wait_ms(50);
     car.stop();
 
     // object detect
     non_mission = 0;
+    blueLED = 0;
     object_detect();
     // matrix data
-    // data_matrix();
+    data_matrix();
     non_mission = 1;
+    blueLED = 1;
 
     // walk to the end
     // back
@@ -196,28 +249,42 @@ int main() {
     encoder_left.reset();
     movement = 2;
     car.goStraight(-100);
-    while(encoder_left.get_cm()<15) wait_ms(50);
+    /*while (1){
+        if ((float)ping > 30){
+            car.stop();
+            break;
+        }
+        wait_ms(10);
+    }*/
+    while(encoder_left.get_cm()<10) wait_ms(50);
     car.stop();
     // back right
     wait(1);
     encoder_left.reset();
     movement = 4;
     car.turn(-100, -0.3);
-    while(encoder_left.get_cm()<10) wait_ms(50);
+    while(encoder_left.get_cm()<16) wait_ms(50);
     car.stop();
     // straight
     wait(1);
     encoder_left.reset();
     movement = 1;
     car.goStraight(100);
-    while(encoder_left.get_cm()<25) wait_ms(50);
+    /*while (1){
+        if ((float)ping < 35){
+            car.stop();
+            break;
+        }
+        wait_ms(10);
+    }*/
+    while(encoder_left.get_cm()<20) wait_ms(50);
     car.stop();
     // turn right
     wait(1);
     encoder_left.reset();
     movement = 4;
     car.turn(100, -0.3);
-    while(encoder_left.get_cm()<13.75) wait_ms(50);
+    while(encoder_left.get_cm()<16) wait_ms(50);
     car.stop();
     // straight
     wait(1);
@@ -241,30 +308,65 @@ void logger(){
     }
 }
 
+void data_matrix(){
+    char s[10];
+    sprintf(s, "matrix");
+    uart.puts(s);
+    wait(5);
+    if (uart.readable())
+    {
+        char temp;
+        char rev[20];
+        int counter = 1;
+        while (1){
+            temp = uart.getc();
+            if (temp == '\0'){
+                temp = uart.getc();
+            }
+            else if (temp != '\r'){
+                rev[counter] = temp;
+                counter++;
+            }
+            else{
+                break;
+            }
+        }
+        for (int i = 1; i < counter; i++){
+            xbee.putc(rev[i]);
+        }
+        counter = 1;
+        xbee.printf("\r\n");
+    }
+}
 void object_detect(){
     float data[3];
     int result = 1;
     // get data
+    wait(0.5);
     data[0] = (float)ping;
 
     // right data
-    car.turn(50, -0.2);
+    car.turn(50, -0.05);
+    wait(0.5);
     car.stop();
-    wait(2);
+    wait(0.5);
     data[1] = (float)ping;
 
     // turn front
-    car.turn(-50, -0.2);
+    car.turn(-50, -0.05);
+    wait(0.5);
     car.stop();
 
     // left data
-    car.turn(50, 0.2);
+    car.turn(50, 0.05);
+    wait(0.5);
     car.stop();
     wait(2);
     data[2] = (float)ping;
 
     // turn front
-    car.turn(-50, 0.2);
+    car.turn(-50, 0.05);
+    wait(0.5);
     car.stop();
 
     // calculate
@@ -292,16 +394,15 @@ void object_detect(){
 void get_image_data(){
     // send quest
     char s[11];
-    sprintf(s, "imagedata");
+    sprintf(s, "identify");
     uart.puts(s);
     wait(5);
     // fetch information
-    
-        if (uart.readable()){
-            char recv = uart.getc();
-            xbee.putc(recv);
-            xbee.printf("get image\r\n");
-        }
+    if (uart.readable()){
+        char recv = uart.getc();
+        xbee.putc(recv);
+        xbee.printf("get image\r\n");
+    }
     
     
 }
@@ -332,31 +433,4 @@ void xbee_rx(void)
 		wait(0.1);
 	}
 	xbee.attach(xbee_rx_interrupt, Serial::RxIrq); // reattach interrupt
-}
-
-void reply_messange(char *xbee_reply, char *messange)
-{
-	xbee_reply[0] = xbee.getc();
-	xbee_reply[1] = xbee.getc();
-	xbee_reply[2] = xbee.getc();
-	if (xbee_reply[1] == 'O' && xbee_reply[2] == 'K')
-	{
-		pc.printf("%s\r\n", messange);
-		xbee_reply[0] = '\0';
-		xbee_reply[1] = '\0';
-		xbee_reply[2] = '\0';
-	}
-}
-
-void check_addr(char *xbee_reply, char *messenger)
-{
-	xbee_reply[0] = xbee.getc();
-	xbee_reply[1] = xbee.getc();
-	xbee_reply[2] = xbee.getc();
-	xbee_reply[3] = xbee.getc();
-	pc.printf("%s = %c%c%c\r\n", messenger, xbee_reply[1], xbee_reply[2], xbee_reply[3]);
-	xbee_reply[0] = '\0';
-	xbee_reply[1] = '\0';
-	xbee_reply[2] = '\0';
-	xbee_reply[3] = '\0';
 }

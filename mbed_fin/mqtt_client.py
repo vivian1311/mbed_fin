@@ -14,7 +14,7 @@ def on_connect(self, mosq, obj, rc):
     print("Connected rc: " + str(rc))
 
 def on_message(mosq, obj, msg):
-    print("[Received] Topic: " + msg.topic + ", Message: " + str(msg.payload) + "\n")
+    # print("[Received] Topic: " + msg.topic + ", Message: " + str(msg.payload) + "\n")
     data = str(msg.payload.decode())
     print(data)
     
